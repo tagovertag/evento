@@ -1,0 +1,81 @@
+
+.card {
+  height: 110vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center; // Centraliza o conteúdo verticalmente
+  justify-content: space-between; // Distribui espaço entre os elementos
+  margin-bottom: 60px; // Espaço entre a seção atual e a próxima
+
+  &__inner {
+    width: 60%;
+    padding-left: 120px;
+    box-sizing: border-box;
+    position: relative;
+
+    &__title {
+      margin: 0;
+      font-weight: 600;
+
+      span {
+        background: linear-gradient(87.6deg, #093df8 -31.42%, #bc5ffc 112.86%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent; // Compatibilidade com navegadores modernos
+      }
+
+      h1 {
+        color: white;
+        font-size: 5.3em; // Tamanho original preservado
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__img {
+    width: 90%; // Mantém proporcional ao inner
+    position: relative;
+    z-index: -1; // Coloca atrás do conteúdo textual
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(0.4);
+
+    img {
+      width: 90%;
+      max-width: 1200px; // Evita que a imagem cresça desproporcionalmente
+      border-radius: 20px;
+      object-fit: cover; // Garante que a imagem seja ajustada corretamente
+    }
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; // Alinha elementos em coluna
+    height: auto; // Ajusta a altura ao conteúdo
+    margin-bottom: 40px; // Reduz o espaçamento em telas menores
+
+    &__inner {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+
+      &__title h1 {
+        font-size: 2.5em; // Reduz tamanho apenas em dispositivos menores
+      }
+    }
+
+    &__img {
+      width: 100%;
+      img {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+      }
+    }
+  }
+}

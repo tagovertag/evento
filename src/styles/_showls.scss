@@ -1,0 +1,218 @@
+
+
+    @use 'variable';
+
+    .upcoming {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 20px;
+    background-color: variable.$corBody;
+    color: variable.$corWhite;
+
+    &__title-anime {
+        width: 100%;
+        height: auto; // Ajusta dinamicamente
+        padding: 20px 0;
+
+        h4 {
+        font-weight: 600;
+        display: block;
+        text-align: start;
+        margin: 0 0 20px 120px;
+        font-size: calc(1rem + 2vw);
+        line-height: calc(1rem + 2.6vw);
+        color: variable.$corWhite;
+        }
+
+        p {
+        font-weight: 400;
+        font-size: 1rem;
+        margin-left: 120px;
+        line-height: 1.7;
+        font-family: "Arial", sans-serif;
+        color: variable.$corWhite;
+        }
+    }
+
+    &__gigs {
+        width: 100%;
+        position: relative;
+
+        &__block {
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 0;
+            border-bottom: 1px solid variable.$corWhite;
+
+            &:last-child {
+            border-bottom: none; // Remove borda do último item
+            }
+
+            .list-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .location{
+                width: 180px;
+                text-align: center;
+                margin-left: 30px;
+
+            }
+
+            a {
+                text-decoration: none;
+
+                .button-wrapper span {
+                padding: 8px 16px;
+                background-color: variable.$corbuttom;
+                color: variable.$corWhite;
+                border-radius: 8px;
+                font-size: 0.875rem;
+                cursor: pointer;
+                text-align: center;
+                transition: background-color 0.3s ease;
+                margin-right: 30px;
+
+                &:hover {
+                    background-color: variable.$corWhite;
+                    color: variable.$corbuttom;
+                }
+                }
+            }
+
+            .sold-out {
+                width: 100px;
+                padding: 8px 18px;
+                background-color: #777;
+                color: #fff;
+                border-radius: 8px;
+                font-size: 0.775rem;
+                margin-right: 30px;
+                text-align: center;
+            }
+            }
+
+            span {
+            font-size: 1rem;
+            color: variable.$corWhite;
+            width: 100px;
+            }
+
+            .time {
+            }
+
+            .left-area {
+            align-items: flex-end;
+            padding: 7px 25px;
+            }
+        }
+
+        .date {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            float: left;
+        }
+
+        .city {
+            font-weight: 700;
+            font-size: 1rem;
+            float: left;
+            clear: left;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        /* Responsividade*/
+        }
+    }
+
+    @media (max-width: 768px) {
+        .upcoming {
+        padding: 10px;
+    
+        &__title-anime {
+            h4 {
+            margin-left: 10px;
+            font-size: 1.5rem;
+            }
+
+            p {
+            margin-left: 10px;
+            font-size: 1rem;
+            }
+        }
+
+        &__gigs {
+            
+            &__block {
+                
+            ul {
+                
+                .row{
+
+                    .location{
+                        width: 50px;  
+                        margin-left: 5px;
+                    }   
+
+                .list-area{
+                    align-items: center;
+                    width: 100%; // Garante que a área ocupe toda a largura
+                
+
+                    span{
+                        font-size: 10px;
+                    }
+
+                    .time{
+                        padding-left: 50px;
+                        
+                    }
+
+                    a{
+                        
+                        .button-wrapper span{
+                            display: flex;
+                            margin-top: 10px; 
+                            width: 70%; // Botão ocupa toda a largura
+                            text-align: center;
+                            font-size: 8px;
+                            white-space: nowrap;
+                            margin-left: 15px;
+                            
+                        
+                        }
+                    }
+
+                    .sold-out{
+                        width: 80px;
+                        font-size: 8px;
+                        white-space: nowrap;
+                        margin-left: 15px;
+                        text-align: center;
+                    }
+                    
+                }       
+                
+            }
+            }
+        }
+        }
+    }
+    }
+    }

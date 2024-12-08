@@ -1,0 +1,91 @@
+
+@use 'variable';
+
+.header {
+    width: 100%;
+    height: 80px;
+    padding: 10px 20px;
+    background-color: variable.$corBody;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra leve para separação visual
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 60px;
+        transition: all ease 0.3s;
+    }
+}
+
+.row {
+    &__nav {
+        &__ul {
+            display: flex;
+            gap: 20px; // Espaçamento entre itens
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .menu-item {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                a {
+                    font-size: 16px;
+                    padding: 8px 16px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    color: variable.$corLi;
+                    border: 2px solid transparent; // Remover borda visível por padrão
+                    border-radius: 16px;
+                    transition: all 0.3s ease; // Transição suave
+                }
+
+                a:hover {
+                    color: variable.$corBody;
+                    background: variable.$corWhite;
+                    border-color: variable.$corLi; // Adiciona borda ao passar o mouse
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Leve sombra ao passar o mouse
+                }
+            }
+        }
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        height: auto; // Ajusta altura para cabeçalhos menores
+        padding: 10px;
+
+        &__container {
+            flex-direction: column; // Layout empilhado
+            padding: 0 20px;
+        }
+    }
+
+    .row {
+        &__nav {
+            &__ul {
+                margin-top: 10px;
+                flex-direction: column; // Menu vertical
+                gap: 10px;
+
+                .menu-item{
+                    align-items: center;
+                    margin: auto;
+                    a{
+                        align-items: center;
+                        
+                    }
+                }
+            }
+        }
+    }
+}

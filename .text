@@ -1,0 +1,49 @@
+Se o Parcel está assistindo os arquivos enquanto você está digitando, isso pode estar causando o erro porque o Parcel tenta compilar arquivos incompletos, resultando em falhas de sintaxe ou erros de compilação. Para resolver esse problema, você pode tentar algumas abordagens:
+
+1. Desabilitar o Modo de "watch" Temporariamente
+O Parcel, por padrão, usa o modo "watch" para monitorar mudanças em tempo real e recompilar os arquivos imediatamente. Isso pode causar problemas quando você está no meio da edição e o Parcel tenta compilar um arquivo incompleto.
+
+Solução: Em vez de rodar o Parcel no modo "watch" durante a edição, você pode rodá-lo em modo de build (compilação) manualmente ou desabilitar o watch enquanto estiver escrevendo.
+
+Modo de build (não assíncrono): Você pode rodar o Parcel sem o watch usando o comando parcel build. Isso vai compilar os arquivos de uma vez, sem monitorar as mudanças em tempo real:
+
+bash
+Copiar código
+parcel build src/index.html
+Modo de desenvolvimento (com controle manual): Outra opção é rodar o Parcel com o comando parcel serve apenas depois que você terminar de editar o arquivo. Isso vai começar a assistir os arquivos assim que você estiver pronto.
+
+2. Usar parcel serve Somente Quando Finalizar a Edição
+Se você estiver trabalhando em arquivos incompletos e o Parcel estiver assistindo os arquivos, o erro pode ocorrer por causa da compilação de um arquivo incompleto. A melhor prática seria:
+
+Desabilitar o auto-reload enquanto edita: Trabalhe nos seus arquivos sem o Parcel assistir os arquivos, e só ative a observação (com parcel serve) quando terminar de codificar.
+
+Usar parcel watch manualmente: Em vez de usar o parcel serve, você pode usar o parcel watch e esperar até terminar a edição para iniciar o Parcel. Exemplo:
+
+bash
+Copiar código
+parcel watch src/index.html
+Isso faz com que o Parcel observe apenas após você salvar.
+
+3. Evitar Erros de Sintaxe Completos
+Para evitar que o Parcel compile um arquivo incompleto e cause erros, você pode comentar partes do código temporariamente, como mencionado anteriormente:
+scss
+Copiar código
+// color: ;
+Isso garante que o Parcel não tente compilar um arquivo com erro de sintaxe.
+4. Usar parcel build --no-source-maps Temporariamente
+Se o erro está relacionado a problemas de mapas de fonte (source maps), você pode tentar desabilitar os mapas de fontes enquanto digita:
+
+bash
+Copiar código
+parcel build src/index.html --no-source-maps
+Isso pode ajudar a evitar problemas de sintaxe durante o desenvolvimento.
+
+5. Mudar a Configuração do Parcel no .parcelrc
+Se você está usando o Parcel 2 e tem um arquivo .parcelrc, você pode tentar ajustar as configurações para controlar a forma como o Parcel compila os arquivos. No entanto, se o problema estiver relacionado com o Parcel assistindo os arquivos enquanto você está digitando, a solução principal seria modificar seu fluxo de trabalho com o Parcel (e.g., usar o modo build manualmente).
+
+Resumo das Soluções:
+Desabilitar o watch temporariamente usando o comando parcel build ou parcel serve apenas quando finalizar.
+Comentar código incompleto até que esteja pronto para compilar.
+Rodar Parcel manualmente usando parcel build e esperar terminar o código antes de iniciar o watch.
+Desabilitar source maps, se for um problema relacionado a mapas de fonte.
+Com isso, você deve conseguir evitar o erro de compilação enquanto está digitando. Se precisar de mais detalhes, estou à disposição!
